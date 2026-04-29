@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoot Crimelife - FiveM Crimelife Server</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <meta name="referrer" content="no-referrer"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://cdn.discordapp.com https://imgs.search.brave.com; connect-src 'self'"> -->
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (
+                e.keyCode === 123 || 
+                e.keyCode === 73 && e.ctrlKey && e.shiftKey || 
+                e.keyCode === 74 && e.ctrlKey && e.shiftKey || 
+                e.keyCode === 67 && e.ctrlKey && e.shiftKey || 
+                e.keyCode === 83 && e.ctrlKey || 
+                e.keyCode === 85 && e.ctrlKey    
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        (function() {
+            function detectDevTools() {
+                const widthThreshold = window.outerWidth - window.innerWidth > 160;
+                const heightThreshold = window.outerHeight - window.innerHeight > 160;
+                
+                if (widthThreshold || heightThreshold) {
+                    document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#0f0f15;color:white;font-family:sans-serif;"><h1>Zugriff verweigert</h1></div>';
+                }
+            }
+            
+            detectDevTools();
+            setInterval(detectDevTools, 1000);
+            
+            setInterval(function() {
+                debugger;
+            }, 100);
+        })();
+    </script>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="content">
+        <!-- L30nis -->
+        <nav class="navbar">
+            <div class="logo">Shoot Crimelife</div>
+            <div class="profile-container">
+                <img src="assets/img/logo.png" alt="Shoot Crimelife Logo" class="profile-picture">
+            </div>
+            <div class="nav-links">
+                <a href="https://cfx.re/join/zrm99p" class="nav-button nav-play" target="_blank">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Jetzt spielen!</span>
+                </a>
+                <a href="#aktueller-stand" class="nav-button" id="aktuellerStandBtn">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Aktueller Stand</span>
+                </a>
+                <a href="#team" class="nav-button">
+                    <i class="fas fa-users"></i>
+                    <span>Unser Team</span>
+                </a>
+                <a href="https://discord.gg/shootcl" class="nav-button" target="_blank">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+            </div>
+        </nav>
+
+        <section class="hero-section">
+            <h1 class="main-title">
+                <span class="highlight typing-text">Shoot Crimelife</span>
+                <span class="typing-text">einer der meist</span>
+                <br>
+                <span class="typing-text">gehyptesten Crimelife Server</span>
+            </h1>
+            <p class="subtitle">Join jetzt auf unserem Discord Server und entdecke das Gefühl eines echten Crimelife Servers</p>
+            
+            <div class="cta-buttons">
+                <a href="https://cfx.re/join/zrm99p" class="cta-button primary cta-play" target="_blank">
+                    <i class="fas fa-gamepad"></i> Jetzt spielen!
+                </a>
+                <a href="https://discord.gg/shootcl" class="cta-button secondary" target="_blank">
+                    <i class="fab fa-discord"></i> Unser Discord
+                </a>
+                <a href="#team" class="cta-button secondary">
+                    <i class="fas fa-users"></i> Unser Team
+                </a>
+            </div>
+
+            <div class="stats-section" id="aktueller-stand">
+                <h2 class="stats-title">
+                    <i class="fas fa-chart-line"></i> Aktueller Stand
+                </h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <i class="fab fa-discord stat-icon"></i>
+                        <span class="stat-number" data-target="500" id="discord-members">0</span>
+                        <span class="stat-label">Discord Mitglieder</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-users stat-icon"></i>
+                        <span class="stat-number" data-target="0" id="fivem-players">0</span>
+                        <span class="stat-label">Spieler Online</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-fire stat-icon"></i>
+                        <span class="stat-number" data-target="100" id="peak-players">0</span>
+                        <span class="stat-label">Peak Spieler</span>
+                    </div>
+                    <div class="stat-box">
+                        <i class="fas fa-user-plus stat-icon"></i>
+                        <span class="stat-number" id="registered-players">20.000+</span>
+                        <span class="stat-label">Registrierte Spieler</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 class="section-title">Features</h2>
+            <p class="section-subtitle">Was Shoot Crimelife auszeichnet</p>
+        </div>
+
+        <section class="features-section" id="features">
+            <div class="features-container">
+                <div class="feature-box fade-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="feature-title">Viele Features</h3>
+                    <p class="feature-description">Shoot Crimelife hebt von der Masse ab mit vielen verschiedenen Features die man noch nie gesehen hat.</p>
+                </div>
+                <div class="feature-box fade-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Beste Sync</h3>
+                    <p class="feature-description">Shoot Crimelife zeichnet sich mit einer der besten Syncs in ganz FiveM aus!</p>
+                </div>
+                <div class="feature-box fade-element">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">AntiCheat</h3>
+                    <p class="feature-description">Mit einem starken AntiCheat wird Shoot Crimelife von Cheatern geschützt!!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-header">
+            <h2 class="section-title">Unser Team</h2>
+            <p class="section-subtitle">Die Köpfe hinter Shoot Crimelife</p>
+        </div>
+
+        <!-- L30nis -->
+        <section class="team-section" id="team">
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://files.catbox.moe/s6kvkl.gif" alt="PeaZe Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://files.catbox.moe/4oq29j.png" alt="PeaZe Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Xalo</h3>
+                        <span class="member-role">Projektinhaber</span>
+                        <p class="member-description">
+                          Visionär von Shoot Crimelife. Mit jahrelanger Erfahrung im FiveM-Bereich erschafft Xalo ein einzigartiges Spielerlebnis durch innovative Konzepte und kreative Ideen.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/1143618673177808946" class="social-icon"><i class="fab fa-discord"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://i.ibb.co/tp26j2L9/getsitecontrol-convert-video-to-gif-free.gif" alt="Leonis Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://i.ibb.co/G4kv1YkS/4f3b70e0fef41df864d61c4d678a9151.webp" alt="Leonis Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Narek</h3>
+                        <span class="member-role">Projektinhaber & Developer</span>
+                        <p class="member-description">
+                            Gründer von Shoot Crimelife und Entwickelt maßgeschneiderte Scripte und Funktionen für optimales Gameplay. Experte für Backend-Entwicklung und technische Infrastruktur des Servers.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/820291175150780446" class="social-icon"><i class="fab fa-discord"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://files.catbox.moe/s6kvkl.gif" alt="L__1 Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://i.ibb.co/0yvXfQM9/70edecf15ecf45b0a4e652803b0104b0.webp" alt="L__1 Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Akuma</h3>
+                        <span class="member-role">Stv. Projektinhaber</span>
+                        <p class="member-description">
+                            Mit Erfahrung im FiveM-Bereich erschafft Akuma ein lustiges Spielerlebnis durch kreative Ideen.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/900818856950501378" class="social-icon"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://files.catbox.moe/s6kvkl.gif" alt="Mert Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://files.catbox.moe/w0rxgw.png" alt="Mert Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Mert</h3>
+                        <span class="member-role">Stv. Projektinhaber</span>
+                        <p class="member-description">
+                            Mert steht für zuverlässige Projektplanung, strukturierte Umsetzung und hochwertige Ergebnisse.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/697026486322069554" class="social-icon"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://files.catbox.moe/1wuklq.png" alt="Artur Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://files.catbox.moe/g39zxm.png" alt="Artur Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Artur</h3>
+                        <span class="member-role">Serverleitung</span>
+                        <p class="member-description">
+                            Artur leitet technisch und organisatorisch den Server. Mit viel Engagement sorgt er für Stabilität, Sicherheit und einen reibungslosen Ablauf.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/857667633271537675" class="social-icon"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-banner">
+                        <img src="https://i.ibb.co/Tqcy8bCd/595498c4f7f3dfd6b5374cbc93c00cd0.webp" alt="Nikki Banner" class="banner-img">
+                    </div>
+                    <div class="member-avatar">
+                        <img src="https://i.ibb.co/v64n7Lfq/e1cc963842a2b241aaf2b40f36aa371d.webp" alt="Nikki Avatar" class="avatar-img">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Nikki</h3>
+                        <span class="member-role">Stv. Serverleitung</span>
+                        <p class="member-description">
+                            Nikki unterstützt die Serverleitung bei der Organisation und Verwaltung des Servers. Mit Überblick, Engagement und Teamarbeit sorgt Nikki dafür, dass Abläufe reibungslos funktionieren und die Community eine stabile und gut organisierte Umgebung hat.
+                        </p>
+                        <div class="member-socials">
+                            <a href="https://discord.com/users/1297219136933593099" class="social-icon"><i class="fab fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- L30nis -->
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Über uns</h3>
+                    <p>Shoot Crimelife bietet ein krasses Crimelife-Erlebnis auf FiveM mit einer lebendigen Community.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <ul>
+                        <li><a href="#">Nutzungsbedingungen</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="https://discord.gg/shootcl" target="_blank" class="discord-link">Discord</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-media">
+                        <a href="https://discord.gg/shootcl" target="_blank" rel="noopener noreferrer" class="social-media-link" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@shoot.cl" target="_blank" rel="noopener noreferrer" class="social-media-link" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shoot Crimelife. Alle Rechte vorbehalten.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+    <!-- L30nis -->
+</body>
+</html>
